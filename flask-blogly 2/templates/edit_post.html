@@ -3,7 +3,7 @@
 {% block title %} Edit Users Post Page  {% endblock %}
 
 {% block content %} 
-<h1> Edit User </h1>
+<h1> Edit post </h1>
 <form action="/users/posts/{{u_post.user_post.id}}/edit" method="post">
     <label for="title"> Title:</label>
     <br>
@@ -16,5 +16,12 @@
     <button type="submit">Save</button>  <button> <a href="/users/{{u_post.user_post.id}}"> Cancel </a>
     </button>
     <br>
+    {% for t in tags %}
+    <ul>
+        <h1>{{t.id}}</h1>
+        <input type="checkbox" name="{{t.id}}" id="{{t.id}}" value="{{t.tag_name}}">
+        <label for="{{t.tag_name}}">{{t.tag_name}}</label> <br>
+    </ul>
+    {% endfor %}
 </form>
 {% endblock %}

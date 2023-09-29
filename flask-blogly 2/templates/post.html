@@ -7,11 +7,15 @@
 <p>
     {{u_post.content}}
 </p>
-
+ 
 <h3>by {{u_post.user_post.first_name}} {{u_post.user_post.last_name}}</h3>
+
+{%for tp in pt%}
+<h2>{{tp.tags.tag_name}}</h2>
+{%endfor%}
+
         <button> <a href="/users/{{u_post.user_post.id}}"> Cancel </a>
       </button>
-
       <button> <a href="/users/posts/{{u_post.user_post.id}}/edit">Edit</a>
       </button>
       <form action="/users/posts/{{u_post.user_post.id}}/delete" method="post">
